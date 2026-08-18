@@ -1,1 +1,116 @@
-# Project Overview\n\n## 1. Introduction\n\nThis project is a **computer vision and object detection project** being developed as part of my first semester of the **Master of Computer Applications (MCA)** program.\n\nThe main idea is to build a system that can detect wild animals from images or video and, in the future, alert people when a potentially dangerous wild animal is detected.\n\nIn simple terms, the goal is to teach a computer to look at an image or video frame and answer:\n\n> **"Is there a wild animal here, and if so, which animal is it?"**\n\nThe project will initially focus on wild animals from the cat family that can look similar to each other, such as:\n\n- Jaguar\n- Cheetah\n- Leopard\n- Tiger\n\nThese animals are useful for this project because distinguishing between visually similar species can be challenging for a computer vision model.\n\n---\n\n## 2. Problem Statement\n\nWild animals can sometimes enter areas where humans live or work. Detecting such animals early could help provide people with a warning and potentially improve safety.\n\nThe purpose of this project is to explore whether a computer vision model can automatically identify wild animals from images or video.\n\nThe long-term goal is to develop a system that can:\n\n1. Receive an image or video stream.\n2. Detect whether a wild animal is present.\n3. Identify the detected animal.\n4. Provide an alert when a relevant animal is detected.\n\nThe current work is focused on the first part of this larger system: **creating a good dataset and training an object detection model**.\n\n---\n\n## 3. Project Goal\n\nThe primary goal is to train an object detection model capable of detecting and distinguishing selected wild animal species.\n\nThe project will use **YOLO (You Only Look Once)** for object detection.\n\nThe initial focus is on building a dataset containing images of visually similar wild cat species and using this dataset to train and evaluate the model.\n\n---\n\n## 4. Initial Animal Classes\n\nThe initial dataset is focused on the following animal classes:\n\n| Class | Description |\n|---|---|\n| Jaguar | A large wild cat found mainly in the Americas. |\n| Cheetah | A fast-running wild cat known for its speed. |\n| Leopard | A large wild cat with a spotted coat and wide geographical distribution. |\n| Tiger | A large striped wild cat found mainly in Asia. |\n\nThe list of classes may change as the project develops.\n\nAdditional species may be added later if they are relevant to the project's objectives and sufficient training data can be collected.\n\n---\n\n## 5. Computer Vision Approach\n\nThe project uses **object detection** rather than simple image classification.\n\nImage classification answers a question such as:\n\n> "What animal is in this image?"\n\nObject detection goes one step further. It attempts to answer:\n\n> "What animal is present, and where is it located in the image?"\n\nThis is important for the planned application because the system will eventually need to identify animals within video frames and potentially trigger an alert when an animal is detected.\n\nThe YOLO model will be trained using labeled images containing bounding boxes around the animals.\n\n---\n\n## 6. Current Data Preparation Workflow\n\nThe current project workflow begins with animal videos.\n\nInstead of manually collecting every image, videos are used as a source of training images. A Python script is used to extract individual frames from these videos.\n\nThe current workflow is:\n\n`text\nAnimal Videos\n      |\n      v\nPython Frame Extraction\n      |\n      v\nExtracted Video Frames\n      |\n      v\nImage Selection\n      |\n      v\nLabel Studio\n      |\n      v\nDraw Bounding Boxes\n      |\n      v\nLabeled Dataset\n      |\n      v\nYOLO Dataset Format\n`\n\nThe labeled dataset will then be used for YOLO model training.\n\n---\n\n## 7. Current Progress\n\nThe project is currently in the **dataset preparation and image labeling stage**.\n\nCurrent progress includes:\n\n- Animal videos have been collected as sources for dataset images.\n- A Python script is being used to extract frames from the videos.\n- Anaconda is being used to manage the Python environment.\n- Label Studio has been installed for image annotation.\n- Images are being labeled using bounding boxes around the animals.\n- Approximately **50 images have been labeled so far**.\n\nThe dataset is still under development, so the number of images and animal classes may change.\n\n---\n\n## 8. Planned Project Pipeline\n\nThe complete project is planned as a series of stages:\n\n`text\n1. Collect Animal Videos\n          |\n          v\n2. Extract Video Frames\n          |\n          v\n3. Select Useful Images\n          |\n          v\n4. Label Images\n          |\n          v\n5. Prepare YOLO Dataset\n          |\n          v\n6. Train YOLO Model\n          |\n          v\n7. Validate and Evaluate Model\n          |\n          v\n8. Test on New Images / Videos\n          |\n          v\n9. Real-Time Animal Detection\n          |\n          v\n10. Develop Alert System\n`\n\nNot all stages have been implemented yet. The repository will be updated as each stage is completed.\n\n---\n\n## 9. Dataset Preparation\n\nDataset preparation is an important part of this project because the quality and variety of the training data can strongly affect model performance.\n\nThe dataset will be created from animal videos and converted into individual image frames.\n\nThe selected frames will then be annotated using Label Studio.\n\nFor object detection, the animal in an image will be marked using a **bounding box** and assigned to the appropriate animal class.\n\nFor example:\n\n`text\nImage\n  |\n  +---- Bounding Box\n          |\n          +---- Class: Tiger\n`\n\nSpecial attention will be given to difficult images where animals are partially visible, far away, moving, or visually similar to another class.\n\nMore detailed dataset decisions and statistics will be documented in:\n\n`docs/03-dataset.md`\n\n---\n\n## 10. Tools and Technologies\n\nThe project currently uses or plans to use the following technologies:\n\n| Technology | Purpose |\n|---|---|\n| Python | Data processing and project scripts |\n| Anaconda / Conda | Python environment management |\n| Label Studio | Image annotation and labeling |\n| YOLO | Object detection model |\n| Git | Version control |\n| GitHub | Source code and project documentation |\n\nDetailed setup information is documented in:\n\n`docs/02-software-and-setup.md`\n\n---\n\n## 11. Learning Objectives\n\nSince this project is being developed as part of an MCA program, it is also intended as a practical learning project.\n\nThe main topics I expect to learn through the project include:\n\n- Computer vision\n- Object detection\n- Machine learning\n- Dataset creation\n- Image annotation\n- YOLO\n- Python programming\n- Model training\n- Model evaluation\n- Video processing\n- Real-time detection\n- Software development practices\n- Git and version control\n- Technical documentation\n\n---\n\n## 12. Project Scope\n\nThe initial scope of the project is limited to detecting a selected set of wild animal species.\n\nThe project will first focus on creating a reliable dataset and developing a working object detection model before attempting to build a complete real-time alert system.\n\nThe alert mechanism is therefore considered a **future stage** rather than the current focus.\n\nThis allows the project to be developed incrementally and makes it easier to evaluate each stage independently.\n\n---\n\n## 13. Current Status\n\n**Project Stage:** Dataset Preparation / Image Labeling\n\n**Status:** In Progress\n\n**Current Focus:**\n\n> Extracting useful frames from animal videos and creating a labeled dataset using Label Studio.\n\nThe project will be updated continuously as new stages are completed.\n\n---\n\n## 14. Future Work\n\nAfter the initial dataset has been prepared, the planned next steps include:\n\n1. Complete image labeling.\n2. Export the labeled dataset.\n3. Convert or verify the dataset in YOLO-compatible format.\n4. Split the dataset into training, validation, and testing sets.\n5. Train a YOLO object detection model.\n6. Evaluate model performance.\n7. Analyze difficult and incorrectly detected cases.\n8. Improve the dataset and model based on the results.\n9. Test the model on video.\n10. Explore real-time detection.\n11. Develop an alert mechanism for detected animals.\n\nThese steps may change as the project develops and new findings are made.\n\n---\n\n## 15. Project Documentation Philosophy\n\nThis repository is intended to document the project **throughout development**, rather than only documenting the final result.\n\nImportant decisions, experiments, code, dataset preparation steps, problems, solutions, and results will be recorded as the project progresses.\n\nThe purpose is to make the project:\n\n- Easier to understand\n- Easier to reproduce\n- Easier to debug\n- Easier to improve\n- Easier to present as an academic project\n\nThe documentation will also record both successful and unsuccessful approaches where they provide useful learning or context.\n
+# Project Overview
+
+## 1. Introduction
+
+This project is a **computer vision and object detection project** being developed as part of my first semester of the **Master of Computer Applications (MCA)** program.
+
+The main idea is to build a system that can detect wild animals from images or video and, in the future, alert people when a potentially dangerous wild animal is detected.
+
+In simple terms, the goal is to teach a computer to look at an image or video frame and answer:
+
+> **"Is there a wild animal here, and if so, which animal is it?"**
+
+The project will initially focus on wild animals from the cat family that can look similar to each other, such as:
+
+- Jaguar
+- Cheetah
+- Leopard
+- Tiger
+
+These animals are useful for this project because distinguishing between visually similar species can be challenging for a computer vision model.
+
+---
+
+## 2. Problem Statement
+
+Wild animals can sometimes enter areas where humans live or work. Detecting such animals early could help provide people with a warning and potentially improve safety.
+
+The purpose of this project is to explore whether a computer vision model can automatically identify wild animals from images or video.
+
+The long-term goal is to develop a system that can:
+
+1. Receive an image or video stream.
+2. Detect whether a wild animal is present.
+3. Identify the detected animal.
+4. Provide an alert when a relevant animal is detected.
+
+The current work is focused on the first part of this larger system: **creating a good dataset and training an object detection model**.
+
+---
+
+## 3. Project Goal
+
+The primary goal is to train an object detection model capable of detecting and distinguishing selected wild animal species.
+
+The project will use **YOLO (You Only Look Once)** for object detection.
+
+The initial focus is on building a dataset containing images of visually similar wild cat species and using this dataset to train and evaluate the model.
+
+---
+
+## 4. Initial Animal Classes
+
+The initial dataset is focused on the following animal classes:
+
+| Class | Description |
+|---|---|
+| Jaguar | A large wild cat found mainly in the Americas. |
+| Cheetah | A fast-running wild cat known for its speed. |
+| Leopard | A large wild cat with a spotted coat and wide geographical distribution. |
+| Tiger | A large striped wild cat found mainly in Asia. |
+
+The list of classes may change as the project develops.
+
+Additional species may be added later if they are relevant to the project's objectives and sufficient training data can be collected.
+
+---
+
+## 5. Computer Vision Approach
+
+The project uses **object detection** rather than simple image classification.
+
+Image classification answers a question such as:
+
+> "What animal is in this image?"
+
+Object detection goes one step further. It attempts to answer:
+
+> "What animal is present, and where is it located in the image?"
+
+This is important for the planned application because the system will eventually need to identify animals within video frames and potentially trigger an alert when an animal is detected.
+
+The YOLO model will be trained using labeled images containing bounding boxes around the animals.
+
+---
+
+## 6. Current Data Preparation Workflow
+
+The current project workflow begins with animal videos.
+
+Instead of manually collecting every image, videos are used as a source of training images. A Python script is used to extract I-frames from these videos using **FFmpeg**.
+
+The current workflow is:
+
+```text
+Animal Videos
+      |
+      v
+FFmpeg I-Frame Extraction
+      |
+      v
+Extracted I-Frames
+      |
+      v
+Image Selection
+      |
+      v
+Label Studio
+      |
+      v
+Draw Bounding Boxes
+      |
+      v
+Labeled Dataset
+      |
+      v
+YOLO Dataset Format
