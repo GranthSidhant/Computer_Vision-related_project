@@ -1,8 +1,8 @@
 import subprocess
 import os
 
-video_path = r"d:\1.mp4"
-output_folder = r"d:\iframes"
+video_path = r"C:\Users\grant\Downloads\video2.mp3"
+output_folder = r"C:\Animal_detection\iframes2"
 
 os.makedirs(output_folder, exist_ok=True)
 
